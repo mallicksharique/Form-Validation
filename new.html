@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new form</title>
+    <link rel="stylesheet" href="index.html">
+    <style>
+        input:required{
+      border-left: 0.3em solid blue;
+        }
+
+        .warning{
+            background-color: red;
+
+        }
+        .limit{
+background-color: blue;
+        }
+    </style>
+    <script>
+        window.addEventListener("load",e=>{
+            document.getElementById("txtfield").addEventListener("input",checkTextField);
+            document.getElementById("thefile").addEventListener("change",checkFileSize);
+
+
+        })
+
+        function checkFileSize(evnt){
+            let field=evnt.srcElement;
+            let file =field.file[0];
+
+            if(file.size>=500){
+                field.setCustomValidity("The File is Too large");
+            }
+            else{
+                field.setCustomValidity("");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" autocomplete="on">
+        <h1>Autofill Challenge</h1>
+        <fieldset>
+            <legend> Detail shipping autofill information:</legend>
+            <div>
+                <label for="">Firstname:
+                    <input  required type="text" placeholder="md" name="ship-fname" autocomplete="shipping given-name" minlength="2" maxlength="5">
+                </label>
+                <label for="">middlename:
+                    <input type="text" placeholder="sharique" name="ship-mname" autocomplete="shipping additional-name ">
+                </label>
+                <label for="" >lastname:
+                    <input type="text" placeholder="alam" name="ship-fname" autocomplete="shipping family-name">
+                </label>
+                
+            </div>
+            <br>
+            <div>
+                <label for="">Street :
+                    <input type="text" placeholder="wakhra" autocomplete="shipping address-line1">
+                </label>
+            </div>
+            <br>
+            <div>
+                <label for="">City:
+                    <input type="text" placeholder="wukair" autocomplete="shipping address-level2">
+                </label>
+                <label for="">State:
+                    <input type="text" placeholder="qatar" autocomplete="shipping address-level1">
+                </label>
+                <label for="">postcode:
+                    <input type="text" placeholder="005582" autocomplete="shipping postal-code">
+                </label>
+
+            </div>
+            <br>
+            <div>
+                <label for="">Password:
+                    <input type="text" placeholder="sharique@123"  pattern="^ [a-zA-Z] {1,5}" title="required 5 character with symbol and at least one digit">
+                </label>
+            </div>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend> Payment And Billing information</legend>
+        
+        <div>
+            <label for="">Name On Card:
+                <input type="text"placeholder="Mallick">
+            </label>
+        </div>
+        <br>
+        <div>
+            <label for="">City Address:
+                <input type="text"placeholder="wukair">
+            </label>
+        </div>
+        <br>
+        <div>
+            <label for="">City :
+                <input type="text"placeholder="wukair" >
+            </label>
+            <label for=""> State:
+                <input type="text"placeholder="wukr">
+            </label>
+            <label for="">Postcode:
+                <input type="text"placeholder="564218">
+            </label>
+        </div>
+        <br>
+        <div><label for="">Card:
+            <input type="text" placeholder="44141">
+        </label></div>
+
+    </fieldset>
+    <br>
+    <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+<br>
+<div>
+    <h1>Form Validation challenge</h1>
+
+<fieldset>
+    <legend>
+        Personal Information:
+    </legend>
+    <p>Tell Us About Your self:</p>
+    <textarea name="txtfield" id="txtfield" cols="50" rows="10" maxlength="200"></textarea>
+
+    <div>
+        <label for="file"> upload Resume
+            <input type="file" reuired accept=".text" id="thefile">
+        </label>
+    </div>
+</fieldset>
+<br>
+
+<button>Submit</button>
+</div>
+
+        
+    </form>
+    
+</body>
+</html>
